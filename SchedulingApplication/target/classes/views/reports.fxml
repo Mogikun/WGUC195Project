@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.scheduler.controllers.ReportController">
+
+    <TabPane AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+             AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+        <!-- Appointments by Type and Month -->
+        <Tab text="Appointments by Type/Month" closable="false">
+            <VBox spacing="10">
+                <TableView fx:id="typeMonthTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="typeColumn" text="Type"/>
+                        <TableColumn fx:id="monthColumn" text="Month"/>
+                        <TableColumn fx:id="totalColumn" text="Total"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- Contact Schedule -->
+        <Tab text="Contact Schedule" closable="false">
+            <VBox spacing="10">
+                <ComboBox fx:id="contactComboBox" promptText="Select Contact"/>
+                <TableView fx:id="contactScheduleTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="appointmentIdColumn" text="Appointment ID"/>
+                        <TableColumn fx:id="titleColumn" text="Title"/>
+                        <TableColumn fx:id="typeScheduleColumn" text="Type"/>
+                        <TableColumn fx:id="descriptionColumn" text="Description"/>
+                        <TableColumn fx:id="startDateTimeColumn" text="Start Date/Time"/>
+                        <TableColumn fx:id="endDateTimeColumn" text="End Date/Time"/>
+                        <TableColumn fx:id="customerIdColumn" text="Customer ID"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+        <!-- Custom Report -->
+        <Tab text="Custom Report" closable="false">
+            <VBox spacing="10">
+                <!-- Add your custom report content here -->
+            </VBox>
+        </Tab>
+    </TabPane>
+</AnchorPane>
