@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.scheduler.controllers.CustomerController">
+
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+        <!-- Customer Form -->
+        <GridPane hgap="10" vgap="5">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+
+            <!-- Customer ID -->
+            <Label text="Customer ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="customerIdField" disable="true"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <!-- Name -->
+            <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="nameField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <!-- Address -->
+            <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="addressField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <!-- Postal Code -->
+            <Label text="Postal Code:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <!-- Phone -->
+            <Label text="Phone:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <TextField fx:id="phoneField" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <!-- Country -->
+            <Label text="Country:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="countryComboBox" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+            <!-- Division -->
+            <Label text="Division:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="divisionComboBox" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+        </GridPane>
+
+        <!-- Buttons -->
+        <HBox spacing="10">
+            <Button text="Add" onAction="#handleAdd"/>
+            <Button text="Update" onAction="#handleUpdate"/>
+            <Button text="Delete" onAction="#handleDelete"/>
+            <Button text="Clear" onAction="#handleClear"/>
+        </HBox>
+
+        <!-- Customer Table -->
+        <TableView fx:id="customerTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID"/>
+                <TableColumn fx:id="nameColumn" text="Name"/>
+                <TableColumn fx:id="addressColumn" text="Address"/>
+                <TableColumn fx:id="postalCodeColumn" text="Postal Code"/>
+                <TableColumn fx:id="phoneColumn" text="Phone"/>
+                <TableColumn fx:id="divisionColumn" text="Division"/>
+                <TableColumn fx:id="countryColumn" text="Country"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

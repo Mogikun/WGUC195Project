@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.scheduler.controllers.AppointmentController"
+            fx:id="appointmentController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <VBox spacing="10" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="10">
+
+        <!-- View Toggle -->
+        <HBox spacing="10">
+            <RadioButton fx:id="weekViewRadio" text="Week View">
+                <toggleGroup>
+                    <ToggleGroup fx:id="viewToggle"/>
+                </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="monthViewRadio" text="Month View" toggleGroup="$viewToggle"/>
+        </HBox>
+
+        <!-- Form Grid -->
+        <GridPane hgap="10" vgap="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <!-- Row 0 -->
+            <Label text="Appointment ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="appointmentIdField" disable="true"
+                       GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+            <!-- Row 1 -->
+            <Label text="Title:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="titleField" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+            <Label text="Customer:" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <ComboBox fx:id="customerComboBox" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+            <!-- Row 2 -->
+            <Label text="Description:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+            <Label text="Contact:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <ComboBox fx:id="contactComboBox" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+            <!-- Row 3 -->
+            <Label text="Location:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <TextField fx:id="locationField" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+            <Label text="Type:" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+            <TextField fx:id="typeField" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+
+            <!-- Row 4 -->
+            <Label text="Start Date:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+            <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+            <Label text="Start Time:" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+            <ComboBox fx:id="startTimeComboBox" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+
+            <!-- Row 5 -->
+            <Label text="End Date:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+            <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+            <Label text="End Time:" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+            <ComboBox fx:id="endTimeComboBox" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+        </GridPane>
+
+        <!-- Buttons -->
+        <HBox spacing="10">
+            <Button text="Add" onAction="#handleAdd"/>
+            <Button text="Update" onAction="#handleUpdate"/>
+            <Button text="Delete" onAction="#handleDelete"/>
+            <Button text="Clear" onAction="#handleClear"/>
+            <Button text="Refresh" onAction="#handleRefresh"/>
+        </HBox>
+
+        <!-- Appointments Table -->
+        <TableView fx:id="appointmentTable" onMouseClicked="#handleTableSelection" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="appointmentIdColumn" text="ID"/>
+                <TableColumn fx:id="titleColumn" text="Title"/>
+                <TableColumn fx:id="descriptionColumn" text="Description"/>
+                <TableColumn fx:id="locationColumn" text="Location"/>
+                <TableColumn fx:id="typeColumn" text="Type"/>
+                <TableColumn fx:id="startColumn" text="Start Date/Time"/>
+                <TableColumn fx:id="endColumn" text="End Date/Time"/>
+                <TableColumn fx:id="customerIdColumn" text="Customer ID"/>
+                <TableColumn fx:id="contactIdColumn" text="Contact"/>
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>

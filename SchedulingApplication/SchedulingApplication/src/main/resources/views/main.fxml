@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane fx:id="mainBorderPane" xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.scheduler.controllers.MainController"
+            prefHeight="600.0" prefWidth="800.0">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Logout" onAction="#handleLogout"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit"/>
+                </Menu>
+                <Menu text="View">
+                    <MenuItem text="Refresh"/>
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="mainTabPane">
+            <Tab text="Customers" closable="false">
+                <fx:include source="customers.fxml"/>
+            </Tab>
+            <Tab text="Appointments" closable="false">
+                <fx:include source="appointments.fxml"/>
+            </Tab>
+            <Tab text="Reports" closable="false">
+                <fx:include source="reports.fxml"/>
+            </Tab>
+        </TabPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" style="-fx-background-color: #f0f0f0; -fx-padding: 5;">
+            <Label fx:id="statusLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="userLabel"/>
+        </HBox>
+    </bottom>
+</BorderPane>
